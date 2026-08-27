@@ -17,6 +17,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->middleware('role:usuario')
         ->name('usuario.dashboard');
 
+    Route::livewire(
+            '/users',
+            'admin.users.index'
+        )->name('admin.users.index');
+
+    Route::livewire(
+            '/users/create',
+            'admin.users.create'
+        )->name('admin.users.create');
+
+    Route::livewire(
+            '/users/{user}/edit',
+            'admin.users.edit'
+        )->name('admin.users.edit');
+
 });
 
 require __DIR__.'/settings.php';
