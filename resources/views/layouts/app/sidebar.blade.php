@@ -27,6 +27,16 @@
                     </flux:sidebar.group>
                 </flux:sidebar.nav>
             @endif
+            @if (auth()->user()->isAdmin())
+                <flux:sidebar.nav>
+                    <flux:sidebar.group :heading="__('Admin')" class="grid">
+                        <flux:sidebar.item icon="cog" :href="route('admin.apps.index')" :current="request()->routeIs('admin.apps.index')" wire:navigate>
+                            {{ __('Apps') }}
+                        </flux:sidebar.item>
+                    </flux:sidebar.group>
+                </flux:sidebar.nav>
+
+            @endif
 
 
             <flux:spacer />

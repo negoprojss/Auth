@@ -32,6 +32,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
             'admin.users.edit'
         )->name('admin.users.edit');
 
+    Route::livewire(
+            '/apps',
+            'admin.apps.index'
+        )->name('admin.apps.index');
+
+    Route::livewire(
+            '/apps/create',
+            'admin.apps.create'
+        )->name('admin.apps.create');
+
+    Route::livewire(
+            '/apps/{app}/edit',
+            'admin.apps.edit'
+        )->name('admin.apps.edit');
+
 });
 
 require __DIR__.'/settings.php';
